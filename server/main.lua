@@ -108,9 +108,9 @@ AddEventHandler('koe_storageunits:registerStash', function(storageID)
       ['@id'] = storageID
     }, 
     function(result3)
-        stashID = json.encode(result3)
-        exports.ox_inventory:RegisterStash(stashID, "Storage Unit", 70, 300000)
-        TriggerClientEvent('koe_storageunits:openStash', src, stashID)
+        local stashsave = result3[1].stashsave
+        exports.ox_inventory:RegisterStash(stashsave, "Storage Unit", 70, 300000)
+        TriggerClientEvent('koe_storageunits:openStash', src, stashsave)
     end)
 end)
 
